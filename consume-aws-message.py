@@ -24,12 +24,14 @@ if(queue.read() is not None):
 
 	message = queue.read()
 
-	str = message.get_body()
+	if(message.get_body() is not null):
 
-	print("Message read: " + str)
+		str = message.get_body()
 
-	q.delete_message(m)
+		print("Message read: " + str)
 
-	print("Message deleted from the queue")
+		queue.delete_message(message)
+	
+		print("Message deleted from the queue")
 else:
 	print("No meggages to show")
